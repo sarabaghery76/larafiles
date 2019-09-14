@@ -8,4 +8,9 @@ class File extends Model
 {
     protected $primaryKey = 'file_id';
     protected $guarded = ['file_id'];
+
+    public function packages()
+    {
+        return $this->belongsToMany(Package::class,'package_file','file_id','package_id');
+    }
 }
