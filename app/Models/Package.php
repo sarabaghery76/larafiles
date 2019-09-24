@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Categorizable;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Package extends Model
 {
+    use Categorizable;
+
     protected $primaryKey = 'package_id';
     protected $guarded = ['package_id'];
 
@@ -17,7 +20,7 @@ class Package extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class,'user_packages','package_id','user_id')->withPivot(['amount','created_at']);
+        return $this->belongsToMany(User::class,'user_packages','package_id','user_id')->withPivot('amount','created_at');
     }
      
 }

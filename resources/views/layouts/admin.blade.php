@@ -9,6 +9,7 @@
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/bootstrap-rtl.min.css" rel="stylesheet">
         <link href="/css/admin-custom.css" rel="stylesheet">
+        <link href="/css/select2.min.css" rel="stylesheet">
     </head>
     <body>
         @include('admin.partials.nav')
@@ -26,5 +27,7 @@
         </div>
         <script src="/js/jquery.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/select2.min.js"></script>
+        <script src="/js/custom-admin.js"></script>
     </body>
 </html>

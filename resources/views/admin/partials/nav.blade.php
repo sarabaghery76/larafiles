@@ -64,6 +64,17 @@
                     </ul>
                 </li>
             </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">دسته بندی ها <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('admin.categories.list') }}">لیست دسته بندی ها</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ route('admin.categories.create') }}">ثبت دسته بندی جدید</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

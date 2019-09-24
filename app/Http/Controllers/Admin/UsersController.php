@@ -69,9 +69,21 @@ class UsersController extends Controller
             unset($inputs['password']);
         }
         $userItem = User::find($user_id);
-        $userItem ->update($inputs);
+        $userItem->update($inputs);
         return redirect()->route('admin.users.list')->with('success', 'اطلاعات کاربر مورد نظر با موفقیت به روز رسانی شد.');
     }
+
+    public function packages(Request $request, $user_id)
+    {
+        $user = User::find($user_id);
+        if (!$user) {
+            return redirect()->back();
+        }
+        $user_packages = $user->packages()->get();
+        return view('admin.user.packages', compact('user_packages'))->with('panel_title', 'لیست پکیج های کاربر');
+
+    }
+
 }
 
 

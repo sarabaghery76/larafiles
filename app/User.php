@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function packages()
     {
-        return $this->belongsToMany(Package::class,'user_packages','user_id','package_id');
+        return $this->belongsToMany(Package::class,'user_packages','user_id','package_id')->withPivot('amount','created_at');
     }
     
 }

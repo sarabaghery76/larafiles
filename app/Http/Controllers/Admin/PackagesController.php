@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use App\Models\File;
 use App\Models\Package;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class PackagesController extends Controller
 
     public function create()
     {
-        return view('admin.package.create')->with('panel_title', 'ایجاد پکیج جدید');
+        $categories = Category::all();
+        return view('admin.package.create',compact('categories'))->with('panel_title', 'ایجاد پکیج جدید');
     }
 
     public function store(Request $request)
@@ -27,6 +29,9 @@ class PackagesController extends Controller
             'package_price' => $request->input('package_price')
         ]);
         if ($new_package) {
+            if($request->has('categorize')){
+                $new_package->categories()->sync($request->input('categorize'));
+            }
             return redirect()->route('admin.packages.list')->with('success', 'پکیج جدید با موفقیت ساخته شد.');
         }
     }
