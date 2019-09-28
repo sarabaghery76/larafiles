@@ -3,8 +3,13 @@
 Route::get('/', 'Frontend\HomeController@index')->name('home');
 
 Route::group(['namespace' => 'frontend'], function () {
-    Route::get('file/{file_id}','FilesController@details')->name('frontend.files.details');
-    Route::get('file/download/{file_id}','FilesController@download')->name('frontend.files.download');
+    Route::get('/plans','PlansController@index')->name('frontend.plans.index');
+    Route::get('/subscribe/{plan_id}','SubscribeController@index')->name('frontend.subscribe.index');
+    Route::post('/subscribe/{plan_id}','SubscribeController@register')->name('frontend.subscribe.register');
+    //file
+    Route::get('/file/{file_id}','FilesController@details')->name('frontend.files.details');
+    Route::get('/file/download/{file_id}','FilesController@download')->name('frontend.files.download');
+    Route::get('/access','FilesController@access')->name('frontend.files.access');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {

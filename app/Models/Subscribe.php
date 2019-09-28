@@ -7,13 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscribe extends Model
 {
-    protected $guarded=['subscribe_id'];
+    protected $guarded = ['subscribe_id'];
 
-    protected $dates=['subscribe_expired_at'];
+    public $timestamps = false;
+
+    protected $dates = [
+        'subscribe_expired_at',
+        'subscribe_created_at',
+    ];
 
     public function user()
     {
-        return $this->belongsTo(User::class,'subscribe_user_id');
+        return $this->belongsTo(User::class, 'subscribe_user_id');
     }
 
 }

@@ -23,12 +23,9 @@
             <div class="panel-heading">خرید فایل</div>
             <div class="panel-body">
                 @if(App\Utility\User::is_user_subscribed($current_user))
-                    <a href="">دانلود فایل </a>
+                    <a href="{{ route('frontend.files.download',[$file_item->file_id]) }}">دانلود فایل </a>
                 @else
-                    <form action="" method="post">
-                        {{ csrf_field()  }}
-                        <button class="btn btn-success btn-lg btn-block"> خرید این فایل</button>
-                    </form>
+                    <a href="{{ route('frontend.plans.index') }}" class="btn btn-success btn-lg btn-block"> خرید این فایل</a>
                 @endif
             </div>
         </div>
